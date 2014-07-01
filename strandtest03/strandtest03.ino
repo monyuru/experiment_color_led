@@ -26,32 +26,41 @@ void setup() {
 }
 
 void loop() {
+  
+  colorpoint(strip.Color(0,0,255),50);
+  
   // Some example procedures showing how to display to the pixels:
-  colorWipe(strip.Color(MAX_VAL, 0, 0), DELAY_TIME); // Red
+  /*colorWipe(strip.Color(MAX_VAL, 0, 0), DELAY_TIME); // Red
   colorWipe(strip.Color(0, MAX_VAL, 0), DELAY_TIME); // Green
   colorWipe(strip.Color(MAX_VAL, MAX_VAL, 0), DELAY_TIME); // yellow
   colorWipe(strip.Color(0, 0, MAX_VAL), DELAY_TIME); // blue
   colorWipe(strip.Color(MAX_VAL,0,MAX_VAL), DELAY_TIME); // purple
   colorWipe(strip.Color(0, MAX_VAL, MAX_VAL), DELAY_TIME); // cyan
   colorWipe(strip.Color(MAX_VAL, MAX_VAL, MAX_VAL), DELAY_TIME); // white
-    colorWipe(strip.Color(MAX_VAL, MAX_VAL, 0), DELAY_TIME); // yellow
-    colorWipe(strip.Color(MAX_VAL,0,MAX_VAL), DELAY_TIME); // purple
+  colorWipe(strip.Color(MAX_VAL, MAX_VAL, 0), DELAY_TIME); // yellow
+  colorWipe(strip.Color(MAX_VAL,0,MAX_VAL), DELAY_TIME); // purple*/
 
   // Send a theater pixel chase in...
-  //rainbow(DELAY_TIME2);
+  rainbow(DELAY_TIME2);
   //rainbowCycle(DELAY_TIME2);
 }
 
 // Fill the dots one after the other with a color
-void colorWipe(uint32_t c, uint8_t wait) {
+/*void colorWipe(uint32_t c, uint8_t wait) {
   for(uint16_t i=0; i<strip.numPixels(); i++) {
       strip.setPixelColor(i, c);
       strip.show();
       delay(wait);
   }
-}
+}*/
 
-/*void rainbow(uint8_t wait) {
+void colerpoint(unit32_t c unit8_t wait){
+   
+
+
+
+
+void rainbow(uint8_t wait) {
   uint16_t i, j;
 
   for(j=0; j<256; j++) {
@@ -61,10 +70,10 @@ void colorWipe(uint32_t c, uint8_t wait) {
     strip.show();
     delay(wait);
   }
-}*/
+}
 
 // Slightly different, this makes the rainbow equally distributed throughout
-/*void rainbowCycle(uint8_t wait) {
+void rainbowCycle(uint8_t wait) {
   uint16_t i, j;
 
   for(j=0; j<256*5; j++) { // 5 cycles of all colors on wheel
@@ -74,7 +83,7 @@ void colorWipe(uint32_t c, uint8_t wait) {
     strip.show();
     delay(wait);
   }
-}*/
+}
 
 //Theatre-style crawling lights.
 /*void theaterChase(uint32_t c, uint8_t wait) {
@@ -114,7 +123,7 @@ void colorWipe(uint32_t c, uint8_t wait) {
 
 // Input a value 0 to 255 to get a color value.
 // The colours are a transition r - g - b - back to r.
-/*uint32_t Wheel(byte WheelPos) {
+uint32_t Wheel(byte WheelPos) {
   if(WheelPos < 85) {
    return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
   } else if(WheelPos < 170) {
@@ -124,5 +133,5 @@ void colorWipe(uint32_t c, uint8_t wait) {
    WheelPos -= 170;
    return strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);
   }
-}*/
+}
 
