@@ -1,5 +1,9 @@
 #include <Adafruit_NeoPixel.h>
 
+#define MAX_VAL 64 //0 to 255 for brightnes
+#define DELAY_TIME 50
+#define DELAY_TIME2 20
+
 #define PIN 6
 
 // Parameter 1 = number of pixels in strip
@@ -9,7 +13,7 @@
 //   NEO_KHZ400  400 KHz (classic 'v1' (not v2) FLORA pixels, WS2811 drivers)
 //   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)
 //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(60, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(16, PIN, NEO_GRB + NEO_KHZ800);
 
 // IMPORTANT: To reduce NeoPixel burnout risk, add 1000 uF capacitor across
 // pixel power leads, add 300 - 500 Ohm resistor on first pixel's data input
@@ -23,17 +27,19 @@ void setup() {
 
 void loop() {
   // Some example procedures showing how to display to the pixels:
-  //colorWipe(strip.Color(255, 0, 0), 50); // Red
-  //colorWipe(strip.Color(0, 255, 0), 50); // Green
-  colorWipe(strip.Color(0, 0, 255), 50); // Blue
-  // Send a theater pixel chase in...
-  //theaterChase(strip.Color(127, 127, 127), 50); // White
-  //theaterChase(strip.Color(127,   0,   0), 50); // Red
-  //theaterChase(strip.Color(  0,   0, 127), 50); // Blue
+  colorWipe(strip.Color(MAX_VAL, 0, 0), DELAY_TIME); // Red
+  colorWipe(strip.Color(0, MAX_VAL, 0), DELAY_TIME); // Green
+  colorWipe(strip.Color(MAX_VAL, MAX_VAL, 0), DELAY_TIME); // yellow
+  colorWipe(strip.Color(0, 0, MAX_VAL), DELAY_TIME); // blue
+  colorWipe(strip.Color(MAX_VAL,0,MAX_VAL), DELAY_TIME); // purple
+  colorWipe(strip.Color(0, MAX_VAL, MAX_VAL), DELAY_TIME); // cyan
+  colorWipe(strip.Color(MAX_VAL, MAX_VAL, MAX_VAL), DELAY_TIME); // white
+    colorWipe(strip.Color(MAX_VAL, MAX_VAL, 0), DELAY_TIME); // yellow
+    colorWipe(strip.Color(MAX_VAL,0,MAX_VAL), DELAY_TIME); // purple
 
-  //rainbow(20);
-  //rainbowCycle(20);
-  //theaterChaseRainbow(50);
+  // Send a theater pixel chase in...
+  //rainbow(DELAY_TIME2);
+  //rainbowCycle(DELAY_TIME2);
 }
 
 // Fill the dots one after the other with a color
