@@ -27,22 +27,25 @@ void setup() {
 
 void loop() {
   
-  colorpoint(strip.Color(0,0,255),50);
-  
   // Some example procedures showing how to display to the pixels:
   /*colorWipe(strip.Color(MAX_VAL, 0, 0), DELAY_TIME); // Red
   colorWipe(strip.Color(0, MAX_VAL, 0), DELAY_TIME); // Green
-  colorWipe(strip.Color(MAX_VAL, MAX_VAL, 0), DELAY_TIME); // yellow
   colorWipe(strip.Color(0, 0, MAX_VAL), DELAY_TIME); // blue
   colorWipe(strip.Color(MAX_VAL,0,MAX_VAL), DELAY_TIME); // purple
   colorWipe(strip.Color(0, MAX_VAL, MAX_VAL), DELAY_TIME); // cyan
   colorWipe(strip.Color(MAX_VAL, MAX_VAL, MAX_VAL), DELAY_TIME); // white
   colorWipe(strip.Color(MAX_VAL, MAX_VAL, 0), DELAY_TIME); // yellow
   colorWipe(strip.Color(MAX_VAL,0,MAX_VAL), DELAY_TIME); // purple*/
+  theaterChase(strip.Color(MAX_VAL, MAX_VAL, MAX_VAL), DELAY_TIME); // White
+  theaterChase(strip.Color(MAX_VAL, MAX_VAL-24, 0), DELAY_TIME); // yellow
+  //theaterChase(strip.Color(0, 255, 0), 50); // Green
+
 
   // Send a theater pixel chase in...
-  rainbow(DELAY_TIME2);
+  //rainbow(DELAY_TIME2);
   //rainbowCycle(DELAY_TIME2);
+  //theaterChaseRainbow(DELAY_TIME2);
+
 }
 
 // Fill the dots one after the other with a color
@@ -54,13 +57,9 @@ void loop() {
   }
 }*/
 
-void colerpoint(unit32_t c unit8_t wait){
-   
 
 
-
-
-void rainbow(uint8_t wait) {
+/*void rainbow(uint8_t wait) {
   uint16_t i, j;
 
   for(j=0; j<256; j++) {
@@ -70,10 +69,10 @@ void rainbow(uint8_t wait) {
     strip.show();
     delay(wait);
   }
-}
+}*/
 
 // Slightly different, this makes the rainbow equally distributed throughout
-void rainbowCycle(uint8_t wait) {
+/*void rainbowCycle(uint8_t wait) {
   uint16_t i, j;
 
   for(j=0; j<256*5; j++) { // 5 cycles of all colors on wheel
@@ -83,10 +82,10 @@ void rainbowCycle(uint8_t wait) {
     strip.show();
     delay(wait);
   }
-}
+}*/
 
 //Theatre-style crawling lights.
-/*void theaterChase(uint32_t c, uint8_t wait) {
+void theaterChase(uint32_t c, uint8_t wait) {
   for (int j=0; j<10; j++) {  //do 10 cycles of chasing
     for (int q=0; q < 3; q++) {
       for (int i=0; i < strip.numPixels(); i=i+3) {
@@ -101,7 +100,7 @@ void rainbowCycle(uint8_t wait) {
       }
     }
   }
-}*/
+}
 
 //Theatre-style crawling lights with rainbow effect
 /*void theaterChaseRainbow(uint8_t wait) {
@@ -120,6 +119,8 @@ void rainbowCycle(uint8_t wait) {
     }
   }
 }*/
+
+
 
 // Input a value 0 to 255 to get a color value.
 // The colours are a transition r - g - b - back to r.
